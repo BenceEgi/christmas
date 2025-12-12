@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, tr, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        .hide{
+            display: none;
+        }
+        #tableselectorr input[type="radio"] { display: none; }
+        #tableselectorr label {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #333;
+            color: white;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            margin-right: 4px;
+        }
+        #tableselectorr input[type="radio"]:checked + label {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            background-color: azure;
+            width: 50%;
+            gap: 0;
+            margin-top: 20px;
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            align-items: center;
+        }
+
+        form button {
+            margin-top: 10px;
+            width: 100%;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition:
+                background-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.2s ease;
+        }
+        form button:hover{   
+            background-color: #218838;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+            transform: translateY(-1px);
+        }
+        form input:not([type]), form select{
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 6px 10px;
+            background-color: #c2cad8;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        form input:not([type]):disabled, form select:disabled{
+            background-color: #606266;
+            cursor: not-allowed;
+        }
+
+        form input:not([type]):focus, form select:focus {
+            outline: none;
+            border-color: #28a745;
+            background-color: #edf7f0;
+        }
+
+        #uj-otlet{
+            display: flex;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+   <!-- #region uj -->
+   <div id="uj-otlet">
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Osztály</th>
+                        <th>Manó neve</th>
+                        <th>Műszak</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="2">Logisztika</td>
+                        <td>Kovács Máté</td>
+                        <td>délelöttös</td>
+                    </tr>
+                    <tr>
+                        <td>Kovács József</td>
+                        <td>délutános</td>
+                    </tr>
+                    <tr>
+                        <td>Könyvelés</td>
+                        <td>Szabó Anna</td>
+                        <td>éjszakai</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Játékfejlesztés</td>
+                        <td>Varga Péter</td>
+                        <td>délutános</td>
+                    </tr>
+                    <tr>
+                        <td>Nagy Eszter</td>
+                        <td>délutános</td>
+                    </tr>
+                </tbody>
+            </table>
+            <form>
+                <label for="osztaly">Osztály</label>
+                <input id="osztaly"><br>
+                <label for="mano1">Manó 1</label>
+                <input id="mano1">
+                <label for="muszak1">Manó 1 Műszak</label>
+                <select id="muszak1">
+                    <option>Válassz műszakot!</option>
+                    <option value="1">Délelöttös</option>
+                    <option value="2">Délutános</option>
+                    <option value="3">Éjszakai</option>
+                </select>
+                <input type="checkbox" id="masodikmano" />
+                <label for="masodikmano">Két manót veszek fel</label> <br>
+                <label for="mano2">Manó 2</label>
+                <input id="mano2" disabled>
+                <label for="muszak2">Manó 2 Műszak</label>
+                <select id="muszak2" disabled>
+                    <option>Válassz műszakot!</option>
+                    <option value="1">Délelöttös</option>
+                    <option value="2">Délutános</option>
+                    <option value="3">Éjszakai</option>
+                </select>
+                <button>Felvétel</button>
+            </form>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Manó neve</th>
+                        <th>Műszak</th>
+                        <th colspan="2">Tevékenység</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Kovács Máté</td>
+                        <td>délelöttös</td>
+                        <td>pakol arra</td>
+                        <td>pakol erre</td>
+                    </tr>
+                    <tr>
+                        <td>Kovács József</td>
+                        <td>délutános</td>
+                        <td colspan="2">adminisztrálgat</td>
+                    </tr>
+                    <tr>
+                        <td>Szabó Anna</td>
+                        <td>éjszakai</td>
+                        <td>irogat</td>
+                        <td>olvasgat</td>
+                    </tr>
+                    <tr>
+                        <td>Varga Péter</td>
+                        <td>délutános</td>
+                        <td>építget</td>
+                        <td>szerelget</td>
+                    </tr>
+                    <tr>
+                        <td>Nagy Eszter</td>
+                        <td>délutános</td>
+                        <td colspan="2">szétszerelget</td>
+                    </tr>
+                </tbody>
+            </table>
+            <form>
+                <label for="mano">Manó neve</label>
+                <input id="mano">
+                <label for="manotev1">Manó tevékenység 1</label>
+                <input id="manotev1">
+                <label for="manotev2">Manó tevékenység 2</label>
+                <input id="manotev2">
+                <button>Felvétel</button>
+            </form>
+        </div>  
+    </div>
+</body>
+</html>
